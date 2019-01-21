@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo App</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+    <img class="logo"  th:classappend="${isTomcat} ? active : inactive" th:src="@{/img/apache-tomcat-logo.png}"/>
+    <img class="logo"  th:classappend="${isGlassfish} ? active : inactive" th:src="@{/img/glassfish-server.png}"/>
+    <img class="logo"  th:classappend="${isJetty} ? active : inactive" th:src="@{/img/jetty-logo.png}"/>
+
+</body>
+</html>
