@@ -16,7 +16,7 @@ public class HomeController {
     public ModelAndView getHome() {
         ModelAndView mav = new ModelAndView("index");
 
-        String hasPasProp = System.getProperty("CF_INSTANCE_GUID");
+        String hasPasEnv = System.getenv("CF_INSTANCE_GUID");
 
         String hasGlassfishProp = System.getProperty("glassfish.version");
         String hasJettyProp = System.getProperty("jetty.git.hash");
@@ -32,7 +32,7 @@ public class HomeController {
         mav.addObject("isGlassfish", hasGlassfishProp != null);
         mav.addObject("isTomcat", (hasTomcatProp != null && hasGlassfishProp == null));
         mav.addObject("isEmbedded", isEmbeddedServer);
-        mav.addObject("isPas", hasPasProp != null);
+        mav.addObject("isPas", hasPasEnv != null);
 
         return mav;
     }
