@@ -1,6 +1,5 @@
 package io.pivotal.demo.multideployment;
 
-import com.fasterxml.jackson.databind.ser.PropertyBuilder;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
