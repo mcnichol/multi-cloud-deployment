@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
-    <title>Demo App</title>
+    <title>Multi-Deployment</title>
     <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-    <img class="logo"  th:classappend="${isTomcat} ? active : inactive" th:src="@{/img/apache-tomcat-logo.png}"/>
-    <img class="logo"  th:classappend="${isGlassfish} ? active : inactive" th:src="@{/img/glassfish-server.png}"/>
-    <img class="logo"  th:classappend="${isJetty} ? active : inactive" th:src="@{/img/jetty-logo.png}"/>
-
+<h1>You Are Running:</h1>
+<div class="wrapper">
+    <div id="running-pas" class="row" th:classappend="${isPas} ? active : inactive">
+        <a href="https://pivotal.io/platform/pivotal-application-service" target="_blank" rel="noopener noreferrer">
+            <div id="is-pas" class="card">
+                <div><img src="/img/pivotal-application-service.png"/></div>
+                <div>Pivotal Application Service</div>
+            </div>
+        </a>
+    </div>
+    <div class="row embedded-message" th:classappend="${isEmbedded} ? active : inactive">
+        <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html"
+           target="_blank" rel="noopener noreferrer">
+            <span id="is-embedded" class="card">Embedded Server</span>
+        </a>
+    </div>
+    <div class="row embedded-message" th:classappend="${isEmbedded} ? inactive : active">
+        <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html"
+           target="_blank" rel="noopener noreferrer">
+            <span id="is-standalone" class="card">Standalone Server</span>
+        </a>
+    </div>
+    <div id="server-logos" class="row ">
+        <img class="logo card" th:classappend="${isTomcat} ? active : inactive"
+             th:src="@{/img/apache-tomcat-logo.png}"/>
+        <img class="logo card" th:classappend="${isGlassfish} ? active : inactive"
+             th:src="@{/img/glassfish-server.png}"/>
+        <img class="logo card" th:classappend="${isJetty} ? active : inactive"
+             th:src="@{/img/jetty-logo.png}"/>
+    </div>
+</div>
 </body>
 </html>
