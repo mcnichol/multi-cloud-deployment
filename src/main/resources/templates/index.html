@@ -7,35 +7,92 @@
     <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-<h1>You Are Running:</h1>
+<h1>You're App is Running On:</h1>
 <div class="wrapper">
-    <div id="running-pas" class="row" th:classappend="${isPas} ? active : inactive">
-        <a href="https://pivotal.io/platform/pivotal-application-service" target="_blank" rel="noopener noreferrer">
-            <div id="is-pas" class="card">
-                <div><img src="/img/pivotal-application-service.png"/></div>
-                <div>Pivotal Application Service</div>
-            </div>
-        </a>
+    <div id="server-logos" class="row ">
+        <img class="logo card" th:classappend="${isTomcat} ? active : inactive"
+             th:src="@{/img/logo-server-tomcat.png}" alt="server"/>
+        <!--<img class="logo card" th:classappend="${isGlassfish} ? active : inactive"-->
+        <!--th:src="@{/img/logo-server-glassfish.png}"/>-->
+        <img class="logo card" th:classappend="${isJetty} ? active : inactive"
+             th:src="@{/img/logo-server-jetty.png}" alt="server"/>
     </div>
+
     <div class="row embedded-message" th:classappend="${isEmbedded} ? active : inactive">
         <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html"
            target="_blank" rel="noopener noreferrer">
             <span id="is-embedded" class="card">Embedded Server</span>
         </a>
     </div>
+
     <div class="row embedded-message" th:classappend="${isEmbedded} ? inactive : active">
         <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html"
            target="_blank" rel="noopener noreferrer">
             <span id="is-standalone" class="card">Standalone Server</span>
         </a>
     </div>
-    <div id="server-logos" class="row ">
-        <img class="logo card" th:classappend="${isTomcat} ? active : inactive"
-             th:src="@{/img/apache-tomcat-logo.png}"/>
-        <img class="logo card" th:classappend="${isGlassfish} ? active : inactive"
-             th:src="@{/img/glassfish-server.png}"/>
-        <img class="logo card" th:classappend="${isJetty} ? active : inactive"
-             th:src="@{/img/jetty-logo.png}"/>
+
+    <hr/>
+
+    <div class="row paas stretch" th:classappend="${isPas} ? active : inactive">
+        <a href="https://pivotal.io/platform/pivotal-application-service" target="_blank" rel="noopener noreferrer">
+            <div class="card strip pas">
+                <div><img src="/img/logo-paas-pivotal-application-service.png" alt="paas"/></div>
+                <div>Pivotal Application Service</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row paas stretch" th:classappend="${isPas} ? inactive : active">
+        <a href="#">
+            <div class="card strip pas">
+                <div><img src="/img/logo-paas-locked.png" alt="paas"/></div>
+                <div>Without a PaaS Abstraction</div>
+            </div>
+        </a>
+    </div>
+
+    <hr/>
+
+    <div class="row iaas stretch" th:classappend="${iaas} == 'aws' ? active : inactive">
+        <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+            <div class="card strip aws">
+                <div><img src="/img/logo-iaas-amazon-web-services.png" alt="iaas"/></div>
+                <div>Amazon Web Services</div>
+            </div>
+        </a>
+    </div>
+    <div class="row iaas stretch" th:classappend="${iaas} == 'vsphere' ? active : inactive">
+        <a href="https://www.vmware.com/products/vsphere.html" target="_blank" rel="noopener noreferrer">
+            <div class="card strip vsphere">
+                <div><img src="/img/logo-iaas-vsphere.jpg" alt="iaas"/></div>
+                <div>VMWare vSphere</div>
+            </div>
+        </a>
+    </div>
+    <div class="row iaas stretch" th:classappend="${iaas} == 'gcp' ? active : inactive">
+        <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+            <div class="card strip gcp">
+                <div><img src="/img/logo-iaas-google-cloud-platform.png" alt="iaas"/></div>
+                <div>Google Cloud Platform</div>
+            </div>
+        </a>
+    </div>
+    <div class="row iaas stretch" th:classappend="${iaas} == 'azure' ? active : inactive">
+        <a href="https://azure.microsoft.com/en-us/" target="_blank" rel="noopener noreferrer">
+            <div class="card strip azure">
+                <div><img src="/img/logo-iaas-azure.png" alt="iaas"/></div>
+                <div>Azure Cloud Platform</div>
+            </div>
+        </a>
+    </div>
+    <div class="row iaas stretch" th:classappend="${iaas} == 'physical' ? active : inactive">
+        <a href="https://en.wikipedia.org/wiki/Bare-metal_server" target="_blank" rel="noopener noreferrer">
+            <div class="card strip physical">
+                <div><img src="/img/logo-iaas-bare-metal.png" alt="iaas"/></div>
+                <div>Bare Metal</div>
+            </div>
+        </a>
     </div>
 </div>
 </body>

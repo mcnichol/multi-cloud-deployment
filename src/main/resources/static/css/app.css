@@ -1,12 +1,27 @@
+a {
+    text-decoration: none;
+    color: #999999;
+}
+
+body {
+    padding: 2em;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: darkslategray;
+}
+
+fieldset {
+    width: 80%;
+    border: darkslategray dashed medium;
+    padding: 1em 1em 2em 1em;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.wrapper > * {
-    padding: 10px;
-}
 
 .row {
     margin: 1em 0;
@@ -33,10 +48,15 @@
     padding: .5em;
     margin: 1em;
     background-color: #FCFCFC;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    box-shadow: 0 10px 1em 2px rgba(0, 0, 0, 0.55);
+    border-radius: .75em;
+    -webkit-border-radius: .75em;
+    -moz-border-radius: .75em;
+    box-shadow: 0 .75em 1em .2em rgba(0, 0, 0, 0.55);
+}
+
+
+.stretch {
+    width: 70%;
 }
 
 .embedded-message .card {
@@ -46,14 +66,13 @@
 
 #server-logos {
     display: flex;
-    min-height: 15vh;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
 #server-logos .card {
-    max-height: 100px;
+    max-height: 110px;
 }
 
 .logo.inactive {
@@ -62,21 +81,22 @@
     background-color: gainsboro;
 }
 
-#is-pas {
+.card.strip {
     display: flex;
+    flex-flow: row;
     align-items: center;
+    height: 8em;
 }
 
-#is-pas div {
-    margin: .5em 1em;
+.card.strip :first-child {
+    flex: 1;
+    max-height: 110px;
+    text-align: center;
 }
 
-a {
-    text-decoration: none;
-}
-
-body {
-    padding: 2em;
+.card.strip :last-child {
+    flex: 2;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    text-shadow: 1px 1px #222222;
 }
