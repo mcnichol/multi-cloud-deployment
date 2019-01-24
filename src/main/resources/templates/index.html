@@ -53,7 +53,14 @@
     </div>
 
     <hr/>
-
+    <div class="row iaas stretch" th:classappend="${iaas} == 'pws' ? active : inactive">
+        <a href="" target="_blank" rel="noopener noreferrer">
+            <div class="card strip pws">
+                <div><img src="/img/logo-iaas-pivotal-web-services.png" alt="iaas"/></div>
+                <div>Pivotal Web Services</div>
+            </div>
+        </a>
+    </div>
     <div class="row iaas stretch" th:classappend="${iaas} == 'aws' ? active : inactive">
         <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
             <div class="card strip aws">
